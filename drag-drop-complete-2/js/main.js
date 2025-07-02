@@ -13,13 +13,19 @@ function dragStart() {
     console.log(currentDraggedElement);
 }
 
+
 function dragOver(event) {
     event.preventDefault();
 }
 
+function dragLeave(event) {
+    if (currentDraggedElement){
+}
+}
+
 function drop(event) {
     event.preventDefault();
-
+    
     //checks that there is a label inside the drop zone already, if label is already dropped it will 'return back'
     if(this.querySelector(".label")) {
     console.log("This zone has a label");
@@ -39,6 +45,7 @@ labels.forEach(label => {
 targetZones.forEach(target => {
     target.addEventListener("dragover", dragOver);
     target.addEventListener("drop", drop);
+    target.addEventListener("dragleave", dragLeave);
 });
 
 const resetButton = document.getElementById("reset-btn");
