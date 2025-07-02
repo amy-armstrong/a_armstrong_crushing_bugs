@@ -40,3 +40,14 @@ targetZones.forEach(target => {
     target.addEventListener("dragover", dragOver);
     target.addEventListener("drop", drop);
 });
+
+const resetButton = document.getElementById("reset-btn");
+const labelBox = document.getElementById("label-box");
+
+resetButton.addEventListener("click", () => {
+    const droppedLabels = document.querySelectorAll(".target-zone .label");
+
+    droppedLabels.forEach(label => {
+        labelBox.appendChild(label);
+    });
+});
