@@ -19,6 +19,13 @@ function dragOver(event) {
 
 function drop(event) {
     event.preventDefault();
+
+    //checks that there is a label inside the drop zone already, if label is already dropped it will 'return back'
+    if(this.querySelector(".label")) {
+    console.log("This zone has a label");
+    return;
+    }
+
     this.appendChild(currentDraggedElement);
     currentDraggedElement = null;
 }
